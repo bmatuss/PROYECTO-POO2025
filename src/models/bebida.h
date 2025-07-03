@@ -2,12 +2,16 @@
 #define BEBIDA_H
 
 #include "item.h"
+#include <string>
 
 class Bebida : public Item {
+    private:
+        bool alcohol=false; //Si es alcoholica o no
+        
 
     public:
-        Bebida(const std::string& nombre, int precio)
-            : Item(nombre, precio) {}
+        Bebida(const std::string& nombre, int precio, bool alcohol)
+            : Item(nombre, precio), alcohol(alcohol) {}
 
         virtual ~Bebida() {}
 

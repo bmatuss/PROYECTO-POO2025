@@ -8,8 +8,8 @@
 class Comida : public Item {
 
     public:
-        Comida(const std::string& nombre, int precio)
-            : Item(nombre, precio) {}
+        Comida(const std::string& nombre, int precio, bool vegano)
+            : Item(nombre, precio, vegano) {}
 
         virtual ~Comida() {}
 

@@ -20,17 +20,9 @@ class Pedido {
             }
         }
 
-        void agregarItem(Item* item, int cantidad, const std::string& comentario) {
-            items.push_back(new PedidoItem(item, cantidad, comentario));
-        }
+        void agregarItem(Item* item, int cantidad, const std::string& comentario);
         //monto cuenta 
-        int getMontoTotal() const {
-            int total = 0;
-            for(PedidoItem* item : items){
-                total += item->getItem()->getPrecio() * item->getCantidad();
-            }
-            return total; 
-        }
+        int getMontoTotal() const;
 };
 
 #endif // PEDIDO_H
