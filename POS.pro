@@ -10,10 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     src/main.cpp \
-    src/ui/mainwindow.cpp
+    src/ui/mainwindow.cpp 
+
 
 HEADERS += \
-    src/ui/mainwindow.h
+    src/ui/mainwindow.h \
+    src/models/item.h \
+    src/models/bebida.h \
+    src/models/comida.h \
+    src/models/pedido.h \
+    src/models/pedidoItem.h
 
 FORMS += \
     src/ui/mainwindow.ui
