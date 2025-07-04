@@ -89,3 +89,50 @@ void barrawindow::on_pushButton_8_clicked()
     ui->listWidget_8->clear();
 }
 
+void barrawindow::recibirPedido(Pedido* pedido)
+{
+    if (!pedido) return;
+    
+    std::vector<PedidoItem*> itemsBebida;
+    for (size_t i = 0; i < pedido->getItems().size(); i++) {
+        PedidoItem* item = pedido->getItems().at(i);
+        if (item->getItem()->getTipo() == "Bebida") {
+            itemsBebida.push_back(item);
+        }
+    }
+    
+    if (itemsBebida.empty()) {
+        return;
+    }
+    
+    QListWidget* listWidgetLibre = nullptr;
+    
+    if (ui->listWidget_1->count() == 0) {
+        listWidgetLibre = ui->listWidget_1;
+    } else if (ui->listWidget_2->count() == 0) {
+        listWidgetLibre = ui->listWidget_2;
+    } else if (ui->listWidget_3->count() == 0) {
+        listWidgetLibre = ui->listWidget_3;
+    } else if (ui->listWidget_4->count() == 0) {
+        listWidgetLibre = ui->listWidget_4;
+    } else if (ui->listWidget_5->count() == 0) {
+        listWidgetLibre = ui->listWidget_5;
+    } else if (ui->listWidget_6->count() == 0) {
+        listWidgetLibre = ui->listWidget_6;
+    } else if (ui->listWidget_7->count() == 0) {
+        listWidgetLibre = ui->listWidget_7;
+    } else if (ui->listWidget_8->count() == 0) {
+        listWidgetLibre = ui->listWidget_8;
+    }
+    
+    if (!listWidgetLibre) {
+        listWidgetLibre = ui->listWidget_1;
+        listWidgetLibre->clear();
+    }
+    
+    agregarMesa(pedido->getMesa(), listWidgetLibre);
+    for (PedidoItem* item : itemsBebida) {
+        agregarElemento(item->getItem(), item->getCantidad(), item->getComentario(), listWidgetLibre);
+    }
+}
+

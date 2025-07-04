@@ -4,12 +4,16 @@
 #include "../models/categoria.h"
 #include "../models/item.h"
 #include "../models/pedido.h"
+#include "cocinawindow.h"
+#include "barrawindow.h"
 
 PosWindow::PosWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::PosWindow)
     , categoriaActual(nullptr)
     , pedidoActual(new Pedido(0))
+    , ventanaCocina(nullptr)
+    , ventanaBarra(nullptr)
 {
     ui->setupUi(this);
     setWindowTitle("pos");
@@ -83,6 +87,12 @@ void PosWindow::crearBotonesItems(){
     }
 }
 void PosWindow::mesaSeleccionada(){
+    QPushButton* boton = qobject_cast<QPushButton*>(sender());
+    if (boton) {
+        int numeroMesa = boton->text().toInt();
+        delete pedidoActual;
+        pedidoActual = new Pedido(numeroMesa);
+    }
     ui->stackedWidget->setCurrentWidget(ui->menu);
 }
 
@@ -119,3 +129,33 @@ Item* PosWindow::buscarItemEnCategoria(const std::string& nombreItem) {
     }
     return nullptr;
 }
+
+void PosWindow::on_enviarButton_clicked()
+{
+    if (pedidoActual && !pedidoActual->getItems().empty()) {
+        if (ventanaCocina) {
+            ventanaCocina->recibirPedido(pedidoActual);
+        }
+        if (ventanaBarra) {
+            ventanaBarra->recibirPedido(pedidoActual);
+        }
+
+        ui->listaPedido->clear();
+    
+        int mesaActual = pedidoActual->getMesa();
+        delete pedidoActual;
+        pedidoActual = new Pedido(mesaActual);
+        ui->stackedWidget->setCurrentWidget(ui->posPrincipal);
+    }
+}
+
+void PosWindow::setCocinaWindow(cocinawindow* cocina)
+{
+    ventanaCocina = cocina;
+}
+
+void PosWindow::setBarraWindow(barrawindow* barra)
+{
+    ventanaBarra = barra;
+}
+

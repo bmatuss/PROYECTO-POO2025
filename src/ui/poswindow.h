@@ -5,6 +5,8 @@
 #include <string>
 #include "../models/categoria.h"
 #include "../models/pedido.h"
+class cocinawindow;
+class barrawindow;
 
 
     
@@ -20,15 +22,21 @@ class PosWindow : public QMainWindow
 public:
     explicit PosWindow(QWidget *parent = nullptr);
     ~PosWindow();
+    
+    void setCocinaWindow(cocinawindow* cocina);
+    void setBarraWindow(barrawindow* barra);
 
 private:
     Ui::PosWindow *ui;
     Categoria* categoriaActual;
-    Pedido* pedidoActual; 
+    Pedido* pedidoActual;
+    cocinawindow* ventanaCocina;
+    barrawindow* ventanaBarra;
     Item* buscarItemEnCategoria(const std::string& nombreItem);
 
 private slots:
     void on_lineEdit_returnPressed();
+    void on_enviarButton_clicked();
     void crearBotonesMesas();
     void crearBotonesCategorias();
     void crearBotonesItems();

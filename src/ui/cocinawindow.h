@@ -18,6 +18,8 @@ class cocinawindow : public QMainWindow
 public:
     explicit cocinawindow(QWidget *parent = nullptr);
     ~cocinawindow();
+    
+    void recibirPedido(Pedido* pedido);
 
 private slots:
     void agregarMesa(int mesa, QListWidget *listWidget);

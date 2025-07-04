@@ -18,6 +18,8 @@ class barrawindow : public QMainWindow
 public:
     explicit barrawindow(QWidget *parent = nullptr);
     ~barrawindow();
+    
+    void recibirPedido(Pedido* pedido);
 
 private slots:
     void agregarElemento(Item *item, int cantidad, const std::string &comentario, QListWidget *listWidget);

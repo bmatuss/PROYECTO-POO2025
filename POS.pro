@@ -15,6 +15,7 @@ SOURCES += \
     src/models/pedido.cpp \
     src/models/categoria.cpp \
     src/models/item.cpp \
+    src/models/pedidoItem.cpp \
     src/main.cpp
 
 

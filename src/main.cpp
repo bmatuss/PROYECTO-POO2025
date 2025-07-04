@@ -13,6 +13,9 @@ int main(int argc, char *argv[])
     cocinawindow cocinaWindow;
     barrawindow barraWindow;
     
+    posWindow.setCocinaWindow(&cocinaWindow);
+    posWindow.setBarraWindow(&barraWindow);
+    
     //abrir las 3 ventnas de una pa
     posWindow.show();
     cocinaWindow.show();

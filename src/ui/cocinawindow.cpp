@@ -82,3 +82,52 @@ void cocinawindow::on_pushButton_8_clicked()
     ui->Comanda_8->clear();
 }
 
+void cocinawindow::recibirPedido(Pedido* pedido)
+{
+    if (!pedido) return;
+    
+    std::vector<PedidoItem*> itemsComida;
+    for (size_t i = 0; i < pedido->getItems().size(); i++) {
+        PedidoItem* item = pedido->getItems().at(i);
+        if (item->getItem()->getTipo() == "Comida") {
+            itemsComida.push_back(item);
+        }
+    }
+    
+    if (itemsComida.empty()) {
+        return;
+    }
+    
+    QListWidget* comandaLibre = nullptr;
+    
+    if (ui->Comanda1->count() == 0) {
+        comandaLibre = ui->Comanda1;
+    } else if (ui->Comanda_2->count() == 0) {
+        comandaLibre = ui->Comanda_2;
+    } else if (ui->Comanda_3->count() == 0) {
+        comandaLibre = ui->Comanda_3;
+    } else if (ui->Comanda_4->count() == 0) {
+        comandaLibre = ui->Comanda_4;
+    } else if (ui->Comanda_5->count() == 0) {
+        comandaLibre = ui->Comanda_5;
+    } else if (ui->Comanda_6->count() == 0) {
+        comandaLibre = ui->Comanda_6;
+    } else if (ui->Comanda_7->count() == 0) {
+        comandaLibre = ui->Comanda_7;
+    } else if (ui->Comanda_8->count() == 0) {
+        comandaLibre = ui->Comanda_8;
+    }
+    
+    // sino a la primera nomaaa 
+    if (!comandaLibre) {
+        comandaLibre = ui->Comanda1;
+        comandaLibre->clear();
+    }
+    
+    //solo comida a cocina 
+    agregarMesa(pedido->getMesa(), comandaLibre);
+    for (PedidoItem* item : itemsComida) {
+        agregarElemento(item->getItem(), item->getCantidad(), item->getComentario(), comandaLibre);
+    }
+}
+
