@@ -18,8 +18,10 @@ PosWindow::PosWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle("pos");
 
+    if (!Categoria::cargarDesdeJSON()) {
     Categoria::inicializarCategoriasDefecto();
     Categoria::agregarItemsEjemplo();
+}
     
     crearBotonesMesas();
     crearBotonesCategorias();

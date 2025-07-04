@@ -1,2 +1,119 @@
-//desde aqui se cargaran los datos del menu
-
+{
+  "categorias": [
+    {
+      "nombre": "Bebidas",
+      "items": [
+        {
+          "nombre": "Coca Colita",
+          "precio": 2500,
+          "tipo": "bebida",
+          "alcohol": false,
+          "vegano": false
+        },
+        {
+          "nombre": "Agua",
+          "precio": 1500,
+          "tipo": "bebida",
+          "alcohol": false,
+          "vegano": false
+        },
+        {
+          "nombre": "Jugo Natural",
+          "precio": 3000,
+          "tipo": "bebida",
+          "alcohol": false,
+          "vegano": false
+        },
+        {
+          "nombre": "Cerveza",
+          "precio": 4000,
+          "tipo": "bebida",
+          "alcohol": true,
+          "vegano": false
+        },
+        {
+          "nombre": "Piscola",
+          "precio": 6500,
+          "tipo": "bebida",
+          "alcohol": true,
+          "vegano": false
+        }
+      ]
+    },
+    {
+      "nombre": "Comidas",
+      "items": [
+        {
+          "nombre": "Pizza Margherita",
+          "precio": 12000,
+          "tipo": "comida",
+          "vegano": true
+        },
+        {
+          "nombre": "Hamburguesa",
+          "precio": 8500,
+          "tipo": "comida",
+          "vegano": false
+        },
+        {
+          "nombre": "Ensalada César",
+          "precio": 7000,
+          "tipo": "comida",
+          "vegano": false
+        },
+        {
+          "nombre": "Pasta",
+          "precio": 9000,
+          "tipo": "comida",
+          "vegano": true
+        }
+      ]
+    },
+    {
+      "nombre": "Postres",
+      "items": [
+        {
+          "nombre": "Helado",
+          "precio": 3500,
+          "tipo": "comida",
+          "vegano": true
+        },
+        {
+          "nombre": "Torta de Chocolate",
+          "precio": 4500,
+          "tipo": "comida",
+          "vegano": false
+        },
+        {
+          "nombre": "Flan",
+          "precio": 3000,
+          "tipo": "comida",
+          "vegano": false
+        }
+      ]
+    },
+    {
+      "nombre": "Extras",
+      "items": [
+        {
+          "nombre": "Papas Fritas",
+          "precio": 2500,
+          "tipo": "comida",
+          "vegano": true
+        },
+        {
+          "nombre": "Pan de Ajo",
+          "precio": 2000,
+          "tipo": "comida",
+          "vegano": true
+        },
+        {
+          "nombre": "Salsa Extra",
+          "precio": 500,
+          "tipo": "comida",
+          "vegano": true
+        }
+      ]
+    }
+  ]
+}

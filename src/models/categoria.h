@@ -114,6 +114,7 @@ class Categoria{
                 extras->agregarItem(new Comida("Salsa Extra", 500, true));
             }
         }
+        static bool cargarDesdeJSON(const QString& rutaArchivo = "");
 };
 
 #endif // CATEGORIA_H
