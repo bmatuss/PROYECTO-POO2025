@@ -67,7 +67,8 @@ src/
 └── ui/                  # Interfaces
     ├── poswindow.*      # Ventana principal
     ├── cocinawindow.*   # Ventana cocina
-    └── barrawindow.*    # Ventana bar
+    ├── barrawindow.*    # Ventana bar
+    └── ... 
 ```
 
 ## Autor
