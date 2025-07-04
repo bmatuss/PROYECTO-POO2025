@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::PosWindow *ui;
+
+private slots:
+    void on_lineEdit_returnPressed();
+    void crearBotonesMesas();
 };
 
 #endif // POSWINDOW_H

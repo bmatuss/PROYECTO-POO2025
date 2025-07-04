@@ -9,15 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/ui/barrawindow.cpp \
+    src/ui/cocinawindow.cpp \
     src/ui/poswindow.cpp \
     src/models/pedido.cpp \
-    src/main.cpp \
-    src/ui/mainwindow.cpp
+    src/main.cpp
 
 
 HEADERS += \
+    src/ui/barrawindow.h \
+    src/ui/cocinawindow.h \
     src/ui/poswindow.h \
-    src/ui/mainwindow.h \
     src/models/item.h \
     src/models/bebida.h \
     src/models/comida.h \
@@ -25,8 +27,9 @@ HEADERS += \
     src/models/pedidoItem.h
 
 FORMS += \
-    src/ui/poswindow.ui \
-    src/ui/mainwindow.ui
+    src/ui/barrawindow.ui \
+    src/ui/cocinawindow.ui \
+    src/ui/poswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
