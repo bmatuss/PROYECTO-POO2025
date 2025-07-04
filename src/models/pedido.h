@@ -1,9 +1,10 @@
 #ifndef PEDIDO_H
 #define PEDIDO_H
-
+#include <iostream>
+#include <string>
 #include <vector>
 #include "item.h"
-#include "pedidoItem.h"
+#include "pedidoitem.h"
 // el pedido formado por una array de PedidoItem(item,cantidad,comentario)
 // cada Pedido tiene una mesa asociada
 class Pedido {
@@ -22,7 +23,10 @@ class Pedido {
 
         void agregarItem(Item* item, int cantidad, const std::string& comentario);
         //monto cuenta 
-        int getMontoTotal() const;
+        double getMontoTotal() const;
+        // devuelve el numero de mesa
+        int getMesa() const { return mesa; }
+        
 };
 
 #endif // PEDIDO_H

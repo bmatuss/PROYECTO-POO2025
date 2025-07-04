@@ -1,9 +1,7 @@
 #ifndef COMIDA_H
 #define COMIDA_H
 
-
 #include "item.h"
-
 
 class Comida : public Item {
 

@@ -19,6 +19,6 @@ class PedidoItem {
         Item* getItem() const {return item; }
         int getCantidad() const {return cantidad; }
         std::string getComentario() const {return comentario;}
-};
+        };
 
 #endif // PEDIDOITEM_H

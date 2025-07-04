@@ -7,11 +7,7 @@ class Item{
     private:
         std::string nombre;
         int precio;
-        bool vegano;   //neaaaaaaaaaaaaa sacalo sino pinta KJKJASJAKSJAKS 
-
-        //----que mas puede ser??
-
-
+        bool vegano;
 
     public:
         Item(const std::string& nombre, const int precio, const bool vegano)
