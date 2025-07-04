@@ -22,6 +22,6 @@ class Item{
 
 
 
-}
+};
 
 #endif // ITEM_H
