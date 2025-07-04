@@ -114,6 +114,29 @@
           "vegano": true
         }
       ]
+    },
+    {
+      "nombre": "Completos",
+      "items": [
+        {
+          "nombre": "Completo Italiano",
+          "precio": 3500,
+          "tipo": "comida",
+          "vegano": false
+        },
+        {
+          "nombre": "Palta Mayo",
+          "precio": 3000,
+          "tipo": "comida",
+          "vegano": false
+        },
+        {
+          "nombre": "Dinamico",
+          "precio": 3200,
+          "tipo": "comida",
+          "vegano": false
+        }
+      ]
     }
   ]
 }
