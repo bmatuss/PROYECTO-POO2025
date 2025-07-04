@@ -82,4 +82,4 @@ src/
 
 ## Autor
 
-Tu Nombre - PROYECTO-POO2025
+Diego Saavedra,Benjamin Matus,Abraham Garcia - PROYECTO-POO2025
