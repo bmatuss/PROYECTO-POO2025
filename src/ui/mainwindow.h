@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "poswindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,8 +17,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private slots:
+    void abrirPOS();
 
 private:
     Ui::MainWindow *ui;
+    PosWindow *posWindow;
 };
 #endif // MAINWINDOW_H

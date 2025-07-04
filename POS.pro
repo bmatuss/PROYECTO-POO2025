@@ -9,12 +9,14 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/ui/poswindow.cpp \
     src/models/pedido.cpp \
     src/main.cpp \
-    src/ui/mainwindow.cpp 
+    src/ui/mainwindow.cpp
 
 
 HEADERS += \
+    src/ui/poswindow.h \
     src/ui/mainwindow.h \
     src/models/item.h \
     src/models/bebida.h \
@@ -23,6 +25,7 @@ HEADERS += \
     src/models/pedidoItem.h
 
 FORMS += \
+    src/ui/poswindow.ui \
     src/ui/mainwindow.ui
 
 # Default rules for deployment.
