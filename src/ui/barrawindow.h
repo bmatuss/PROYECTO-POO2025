@@ -2,6 +2,10 @@
 #define BARRAWINDOW_H
 
 #include <QMainWindow>
+#include <string>
+#include <QListWidget>
+#include "../models/pedido.h"
+#include "../models/item.h"
 
 namespace Ui {
 class barrawindow;
@@ -16,6 +20,9 @@ public:
     ~barrawindow();
 
 private slots:
+    void agregarElemento(Item *item, int cantidad, const std::string &comentario, QListWidget *listWidget);
+    void agregarMesa(int mesa, QListWidget *listWidget);
+
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();

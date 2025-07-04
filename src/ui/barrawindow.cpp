@@ -1,5 +1,8 @@
 #include "barrawindow.h"
 #include "ui_barrawindow.h"
+#include <string>
+#include "../models/bebida.h"
+
 
 barrawindow::barrawindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,11 +10,27 @@ barrawindow::barrawindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("barra");
+    Item *item1 = new Bebida("Cerveza", 500, false);
+    Pedido *pedido1 = new Pedido(1);
+    pedido1->agregarItem(item1, 2, "Sin hielo");
+    agregarMesa(pedido1->getMesa(), ui->listWidget_1);
+    agregarElemento(item1, 2, "Sin hielo", ui->listWidget_1);
 }
 
 barrawindow::~barrawindow()
 {
     delete ui;
+}
+void barrawindow::agregarMesa(int mesa, QListWidget *listWidget){
+    
+    QString mesaText = "Mesa " + QString::number(mesa);
+    listWidget->addItem(mesaText);
+    
+}
+void barrawindow::agregarElemento(Item *item, int cantidad, const std::string &comentario, QListWidget *listWidget){
+    
+    QString itemText = QString::fromStdString(item->getNombre()) + " (x" + QString::number(cantidad) + ")" + " - Comentario: " + QString::fromStdString(comentario);
+    listWidget->addItem(itemText);
 }
 
 void barrawindow::on_pushButton_clicked()
