@@ -177,3 +177,8 @@ conandata.yml
 conanfile.txt
 vcpkg_installed/
 vcpkg.json
+
+# Doxygen documentation
+docs/
+html/
+latex/
