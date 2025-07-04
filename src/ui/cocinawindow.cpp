@@ -9,7 +9,7 @@ cocinawindow::cocinawindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("cocina");
-    Pedido *pedido1 = new Pedido(1); //ese 1 es el numero de mesa
+    /*Pedido *pedido1 = new Pedido(1); //ese 1 es el numero de mesa
     pedido1->agregarItem(new Comida("Vino", 700, false), 1, "Merlot");
     pedido1->agregarItem(new Comida("Whisky", 1000, false), 1, "On the rocks");
     pedido1->agregarItem(new Comida("Agua con gas", 300, true), 1, "Con hielo");
@@ -19,7 +19,7 @@ cocinawindow::cocinawindow(QWidget *parent)
     {
         PedidoItem* item= pedido1->getItems().at(i);
         agregarElemento(item->getItem(), item->getCantidad(), item->getComentario(), ui->Comanda1);
-    }
+    } */ // prueba antigua hardcodeando
 }
 
 
