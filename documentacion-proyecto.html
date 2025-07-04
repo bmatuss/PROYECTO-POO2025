@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistema POS para Restaurante - Documentación del Proyecto</title>
+    <style>
+      body {
+        font-family: Times, serif;
+        line-height: 1.4;
+        margin: 20px;
+        background-color: white;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+      }
+
+      h1 {
+        color: black;
+        text-align: center;
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: black;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: black;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+        padding: 15px;
+        border: 1px solid black;
+      }
+
+      .placeholder {
+        background-color: #ffffcc;
+        border: 1px solid #cccc00;
+        padding: 10px;
+        margin: 10px 0;
+        font-style: italic;
+      }
+
+      .image-placeholder {
+        background-color: #f0f0f0;
+        border: 1px solid black;
+        padding: 30px;
+        text-align: center;
+        margin: 15px 0;
+      }
+
+      .use-case {
+        background-color: #f0f8f0;
+        border: 1px solid #008000;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .requirement {
+        background-color: #fff8dc;
+        border: 1px solid #daa520;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .test-result {
+        background-color: #f0f8ff;
+        border: 1px solid #4682b4;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      ul,
+      ol {
+        padding-left: 25px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .download-section {
+        background-color: #f0f8f0;
+        border: 2px solid black;
+        padding: 15px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .download-link {
+        display: inline-block;
+        background-color: #008000;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+
+      .code-snippet {
+        background-color: #f8f8f8;
+        border: 1px solid black;
+        padding: 10px;
+        font-family: "Courier New", monospace;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sistema POS para Restaurante</h1>
+      <p style="text-align: center; color: #6c757d; font-size: 18px">
+        Documentación Técnica del Proyecto
+      </p>
+
+      <!-- 1. Descripción del Problema -->
+      <div class="section">
+        <h2>1. Descripción del Problema</h2>
+        <div class="placeholder">
+          En muchos restaurantes, la toma de pedidos y el control de mesas se
+          realizan de manera manual lo que genera errores, demoras y una gestión
+          ineficiente. Este proyecto propone el desarrollo de un sistema
+          interactivo de gestión de pedidos y mesas, implementado en C++ con Qt,
+          que optimice la atención al cliente y mejore la organización interna
+          del restaurante.
+        </div>
+      </div>
+
+      <!-- 2. Análisis del Problema -->
+      <div class="section">
+        <h2>2. Análisis del Problema</h2>
+
+        <h3>Elementos y Entes Participantes</h3>
+        <div class="placeholder">
+          <ul>
+            <li>
+              <strong>Actores Externos:</strong> Cliente, Garzón, Cocinero,
+              Cajero
+            </li>
+            <li>
+              <strong>Entidades del Sistema:</strong> Mesa, Pedido, Item
+              (Comida/Bebida), Usuario
+            </li>
+            <li>
+              <strong>Procesos Principales:</strong> Toma de pedidos,
+              Preparación en cocina, Procesamiento de pagos
+            </li>
+          </ul>
+        </div>
+
+        <h3>Definición del Sistema</h3>
+        <div class="placeholder">Sistema POS (Point of Sale) para restaurantes que automatiza la gestión de pedidos, desde la toma de comandas hasta la preparación en cocina y bar.</div>
+
+
+
+      <!-- 3. Definición de Requerimientos -->
+      <div class="section">
+        <h2>3. Definición de Requerimientos</h2>
+
+        <h3>Casos de Uso Principales</h3>
+
+        <div class="use-case">
+          <h4>CU-001: Tomar un Pedido</h4>
+          <p><strong>Actor Principal:</strong> Garzón/Mesero</p>
+          <p><strong>Nivel:</strong> Objetivo del Usuario</p>
+          <p><strong>Precondiciones:</strong></p>
+          <ul>
+            <li>El sistema POS está iniciado</li>
+            <li>Las categorías y menú están cargados</li>
+            <li>Hay mesas disponibles</li>
+            <li>El garzón tiene acceso al sistema</li>
+          </ul>
+          
+          <p><strong>Descripción:</strong> Este caso de uso describe el proceso de tomar un pedido desde que un cliente se sienta en una mesa hasta que la orden se envía a cocina y/o bar para su preparación.</p>
+          
+          <p><strong>Flujo Principal:</strong></p>
+          <h5>1. Selección de Mesa</h5>
+          <ol>
+            <li>El <strong>Garzón</strong> abre la aplicación POS (<code>PosWindow</code>)</li>
+            <li>El sistema muestra todas las mesas disponibles con botones dinámicos</li>
+            <li>El <strong>Garzón</strong> selecciona la mesa del cliente (ejecuta <code>mesaSeleccionada()</code>)</li>
+            <li>El sistema carga el estado de la mesa y crea un nuevo <code>Pedido</code> si es necesario</li>
+          </ol>
+          
+          <h5>2. Navegación del Menú</h5>
+          <ol start="5">
+            <li>El sistema muestra las categorías del menú disponibles (botones creados por <code>crearBotonesCategorias()</code>)</li>
+            <li>El <strong>Garzón</strong> selecciona una categoría (ejecuta <code>categoriaSeleccionada()</code>)</li>
+            <li>El sistema actualiza <code>categoriaActual</code> y muestra los items de esa categoría</li>
+            <li>El sistema ejecuta <code>crearBotonesItems()</code> para mostrar los productos disponibles</li>
+          </ol>
+          
+          <h5>3. Agregar Items al Pedido</h5>
+          <ol start="9">
+            <li>El <strong>Garzón</strong> selecciona un item del menú (ejecuta <code>itemSeleccionado()</code>)</li>
+            <li>El sistema busca el item usando <code>buscarItemEnCategoria(nombreItem)</code></li>
+            <li>El <strong>Garzón</strong> especifica la cantidad y comentarios especiales si es necesario</li>
+            <li>El sistema crea un <code>PedidoItem(item, cantidad, comentario)</code></li>
+            <li>El sistema agrega el item al pedido actual usando <code>pedidoActual->agregarItem()</code></li>
+            <li><strong>Repetir pasos 6-13</strong> para cada item adicional</li>
+          </ol>
+          
+          <h5>4. Envío del Pedido</h5>
+          <ol start="15">
+            <li>El <strong>Garzón</strong> presiona el botón "Enviar" (ejecuta <code>on_enviarButton_clicked()</code>)</li>
+            <li>El sistema separa el pedido por tipo:
+              <ul>
+                <li>Items tipo "Comida" → se envían a <code>cocinawindow</code></li>
+                <li>Items tipo "Bebida" → se envían a <code>barrawindow</code></li>
+              </ul>
+            </li>
+            <li>El sistema agrega el pedido a la mesa usando <code>mesa->agregarPedido(pedido)</code></li>
+            <li>El sistema actualiza las listas de pedidos en las ventanas correspondientes</li>
+          </ol>
+          
+          <p><strong>Postcondiciones:</strong></p>
+          <ul>
+            <li><strong>Éxito:</strong>
+              <ul>
+                <li>El pedido se ha registrado en el sistema</li>
+                <li>Los items de comida aparecen en la ventana de cocina</li>
+                <li>Los items de bebida aparecen en la ventana de bar</li>
+                <li>La mesa tiene el pedido asociado</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Clases Principales:</strong> <code>PosWindow</code>, <code>Mesa</code>, <code>Pedido</code>, <code>PedidoItem</code>, <code>Item</code>, <code>Comida</code>, <code>Bebida</code>, <code>Categoria</code></p>
+          
+          <p><strong>Frecuencia de Uso:</strong> <strong>Alta</strong> - Utilizado múltiples veces por hora durante el servicio del restaurante.</p>
+        </div>
+
+        <div class="use-case">
+          <h4>CU-002: Preparar Orden en Cocina</h4>
+          <p><strong>Actor Principal:</strong> Cocinero</p>
+          <p><strong>Nivel:</strong> Objetivo del Usuario</p>
+          <p><strong>Precondiciones:</strong></p>
+          <ul>
+            <li>El sistema de cocina está activo (<code>cocinawindow</code>)</li>
+            <li>Se ha recibido al menos una orden de comida desde el POS</li>
+            <li>Los ingredientes y equipo de cocina están disponibles</li>
+          </ul>
+          
+          <p><strong>Descripción:</strong> Este caso de uso describe el proceso de gestión y preparación de órdenes de comida en la cocina, desde la recepción de la orden hasta marcar el plato como listo para servir.</p>
+          
+          <p><strong>Flujo Principal:</strong></p>
+          <h5>1. Recepción de Orden</h5>
+          <ol>
+            <li>El <strong>Cocinero</strong> abre la ventana de cocina (<code>cocinawindow</code>)</li>
+            <li>El sistema muestra las órdenes pendientes en la interfaz</li>
+            <li>Una nueva orden llega desde el POS (ejecuta método de recepción de pedido)</li>
+            <li>El sistema actualiza automáticamente la lista de órdenes pendientes</li>
+            <li>El sistema muestra los detalles de la orden:
+              <ul>
+                <li>Número de mesa</li>
+                <li>Items de comida solicitados</li>
+                <li>Cantidades de cada item</li>
+                <li>Comentarios especiales (ej: "sin mayo", "extra picante")</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <h5>2. Preparación de la Comida</h5>
+          <ol start="10">
+            <li>El <strong>Cocinero</strong> lee los detalles específicos de cada <code>PedidoItem</code> de tipo "Comida"</li>
+            <li>El <strong>Cocinero</strong> revisa los comentarios especiales para cada item</li>
+            <li>El <strong>Cocinero</strong> inicia la preparación física de los platos</li>
+          </ol>
+          
+          <h5>3. Finalización y Marcado como Listo</h5>
+          <ol start="14">
+            <li>El <strong>Cocinero</strong> completa la preparación de todos los items de comida de la orden</li>
+            <li>El <strong>Cocinero</strong> verifica que todos los platos estén correctos según las especificaciones</li>
+            <li>El <strong>Cocinero</strong> marca listo</li>
+            <li>El sistema remueve de la lista de pendientes</li>
+          </ol>
+          
+          <p><strong>Postcondiciones:</strong></p>
+          <ul>
+            <li><strong>Éxito:</strong>
+              <ul>
+                <li>La orden de comida está completamente preparada</li>
+                <li>Todos los items están marcados como "listos"</li>
+                <li>La orden se remueve de la lista de pendientes</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Clases Principales:</strong> <code>cocinawindow</code>, <code>Pedido</code>, <code>PedidoItem</code>, <code>Comida</code>, <code>Item</code></p>
+          
+          <p><strong>Frecuencia de Uso:</strong> <strong>Alta</strong> - Utilizado continuamente durante las horas de servicio del restaurante.</p>
+        </div>
+
+        <div class="use-case">
+          <h4>CU-003: Procesar Pago de Mesa</h4>
+          <p><strong>Actor Principal:</strong> Cajero/UsuarioCaja</p>
+          <p><strong>Actor Secundario:</strong> Garzón</p>
+          <p><strong>Nivel:</strong> Objetivo del Usuario</p>
+          <p><strong>Precondiciones:</strong></p>
+          <ul>
+            <li>La mesa tiene al menos un pedido registrado</li>
+            <li>Los pedidos de la mesa están completos (comida y bebidas servidas)</li>
+            <li>El cliente solicita la cuenta</li>
+            <li>El sistema POS está operativo</li>
+          </ul>
+          
+          <p><strong>Descripción:</strong> Este caso de uso describe el proceso de calcular, presentar y procesar el pago total de una mesa, incluyendo todos los pedidos realizados durante la visita del cliente.</p>
+          
+          <p><strong>Flujo Principal:</strong></p>
+          <h5>1. Solicitud de Cuenta</h5>
+          <ol>
+            <li>El <strong>Cliente</strong> solicita la cuenta al <strong>Garzón</strong></li>
+            <li>El <strong>Garzón</strong> accede al sistema POS (<code>PosWindow</code>)</li>
+            <li>El <strong>Garzón</strong> selecciona la mesa correspondiente usando <code>buscarMesaPorNumero()</code></li>
+            <li>El <strong>Garzón</strong> presiona el botón "Pagar" (ejecuta <code>on_pagarButton_clicked()</code>)</li>
+          </ol>
+          
+          <h5>2. Cálculo del Total</h5>
+          <ol start="5">
+            <li>El sistema obtiene todos los pedidos de la mesa usando <code>mesa->getPedidos()</code></li>
+            <li>Para cada <code>Pedido</code> en la mesa:
+              <ul>
+                <li>El sistema calcula el monto usando <code>pedido->getMontoTotal()</code></li>
+                <li>Se suman todos los subtotales de cada <code>PedidoItem</code></li>
+              </ul>
+            </li>
+            <li>El sistema calcula el total final usando <code>mesa->getTotalMesa()</code></li>
+          </ol>
+          
+          <h5>3. Procesamiento del Pago</h5>
+          <ol start="8">
+            <li>El <strong>Cajero</strong> ejecuta <code>procesarPago()</code> del <code>UsuarioCaja</code></li>
+            <li>El sistema registra el pago y actualiza <code>total_recaudado</code></li>
+            <li>Se actualiza el total del cajero usando <code>setTotalRecaudado()</code></li>
+          </ol>
+          
+          <h5>4. Finalización y Cierre de Mesa</h5>
+          <ol start="11">
+            <li>El sistema confirma el pago exitoso</li>
+            <li>El sistema ejecuta <code>mesa->cerrarMesa()</code> para cambiar estado a CERRADA</li>
+            <li>La mesa queda disponible para nuevos clientes</li>
+          </ol>
+          
+          <p><strong>Postcondiciones:</strong></p>
+          <ul>
+            <li><strong>Éxito:</strong>
+              <ul>
+                <li>El pago se registra exitosamente en el sistema</li>
+                <li>El total del cajero se actualiza correctamente</li>
+                <li>La mesa cambia a estado CERRADA</li>
+                <li>La mesa está disponible para nuevos clientes</li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p><strong>Clases Principales:</strong> <code>PosWindow</code>, <code>Mesa</code>, <code>Pedido</code>, <code>PedidoItem</code>, <code>UsuarioCaja</code>, <code>Item</code></p>
+          
+          <p><strong>Frecuencia de Uso:</strong> <strong>Alta</strong> - Utilizado al final de cada servicio de mesa durante todo el día de operación.</p>
+        </div>
+
+        <h3>Casos de Uso para Pruebas</h3>
+        <div class="requirement">
+          <strong>Test Cases:</strong>
+          <ul>
+            <li><strong>TC-001:</strong> Verificar que un garzón puede tomar un pedido completo para una mesa, incluyendo selección de items de comida y bebida, con comentarios especiales, y que la orden se envíe correctamente a cocina y bar.</li>
+            <li><strong>TC-002:</strong> Validar que el personal de cocina puede recibir órdenes de comida, revisar detalles y comentarios especiales, y marcar los platos como listos una vez completada la preparación.</li>
+            <li><strong>TC-003:</strong> Comprobar que el sistema calcula correctamente el total de una mesa con múltiples pedidos, procesa el pago exitosamente y cierra la mesa para nuevos clientes.</li>
+            <li><strong>TC-004:</strong> Verificar manejo de errores cuando no hay items disponibles o falla la comunicación entre módulos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. Diseño -->
+      <div class="section">
+        <h2>4. Diseño</h2>
+
+        <h3>Diagrama de Clases UML</h3>
+        <div class="image-placeholder">
+          <img src="diagrama-clases-FINAL-HD.png" alt="Diagrama de Clases UML del Sistema POS" style="max-width: 100%; border: 1px solid #ccc;">
+        </div>
+        <div class="placeholder">
+          <strong>Explicación del diagrama de clases:</strong> El diagrama muestra la arquitectura completa del sistema POS con las siguientes características principales:
+          <ul>
+            <li><strong>Herencia:</strong> La clase <code>Item</code> es la clase base de la cual heredan <code>Comida</code> y <code>Bebida</code>, implementando polimorfismo para el manejo diferenciado de productos</li>
+            <li><strong>Composición:</strong> La clase <code>Mesa</code> contiene una colección de <code>Pedido</code>, y cada <code>Pedido</code> contiene múltiples <code>PedidoItem</code></li>
+            <li><strong>Agregación:</strong> <code>PedidoItem</code> mantiene una referencia a <code>Item</code> pero no controla su ciclo de vida</li>
+            <li><strong>Interfaces de Usuario:</strong> Las clases <code>PosWindow</code>, <code>CocinaWindow</code> y <code>BarraWindow</code> representan las diferentes interfaces del sistema</li>
+            <li><strong>Gestión de Usuarios:</strong> Jerarquía de usuarios con <code>Usuario</code> como clase base y especializaciones para <code>UsuarioGarzon</code> y <code>UsuarioCaja</code></li>
+            <li><strong>Organización del Menú:</strong> La clase <code>Categoria</code> organiza los items del menú, mientras que <code>MenuLoader</code> se encarga de la carga de datos</li>
+          </ul>
+        </div>
+
+        <h3>Diagramas de Secuencia</h3>
+
+        <h4>Diagrama de Secuencia - CU-001: Tomar Pedido</h4>
+        <div class="image-placeholder">
+          <img src="casos-de-uso/DS-001-Tomar-Pedido-v2.png" alt="Diagrama de Secuencia - Tomar Pedido" style="max-width: 100%; border: 1px solid #ccc;">
+        </div>
+        <div class="placeholder">
+          <strong>Explicación del diagrama:</strong> Este diagrama de secuencia muestra la interacción entre el Garzón, el sistema POS y las entidades del modelo (Mesa, Pedido, PedidoItem, etc.) durante el proceso de tomar un pedido. Se observa claramente:
+          <ul>
+            <li>La selección inicial de mesa y carga del estado</li>
+            <li>La navegación por categorías y selección de items del menú</li>
+            <li>La creación de PedidoItems con cantidades y comentarios</li>
+            <li>El envío diferenciado a cocina (comida) y bar (bebidas)</li>
+          </ul>
+          El flujo demuestra la separación de responsabilidades entre la interfaz de usuario (PosWindow) y el modelo de datos, así como la comunicación asíncrona con los módulos de cocina y bar.
+        </div>
+
+        <h4>Diagrama de Secuencia - CU-002: Preparar Orden</h4>
+        <div class="image-placeholder">
+          <img src="casos-de-uso/DS-002-Preparar-Orden-Cocina-v2.png" alt="Diagrama de Secuencia - Preparar Orden Cocina" style="max-width: 100%; border: 1px solid #ccc;">
+        </div>
+        <div class="placeholder">
+          <strong>Explicación del diagrama:</strong> Este diagrama muestra el flujo de trabajo en la cocina desde la recepción de órdenes hasta su completación. Se destacan los siguientes aspectos:
+          <ul>
+            <li>La recepción automática de órdenes desde el sistema POS</li>
+            <li>La visualización de detalles específicos incluyendo comentarios especiales</li>
+            <li>El filtrado de items por tipo "Comida" usando el patrón de herencia</li>
+            <li>El procesamiento secuencial de cada PedidoItem con sus especificaciones</li>
+            <li>La finalización y remoción de órdenes completadas</li>
+          </ul>
+
+        <h4>Diagrama de Secuencia - CU-003: Procesar Pago</h4>
+        <div class="image-placeholder">
+          <img src="casos-de-uso/DS-003-Procesar-Pago-Mesa-v2.png" alt="Diagrama de Secuencia - Procesar Pago Mesa" style="max-width: 100%; border: 1px solid #ccc;">
+        </div>
+        <div class="placeholder">
+          <strong>Explicación del diagrama:</strong> Este diagrama ilustra el proceso completo de procesamiento de pagos, desde la solicitud del cliente hasta el cierre de la mesa. Los elementos clave incluyen:
+          <ul>
+            <li>La iniciación del proceso a través de la interfaz del garzón</li>
+            <li>El cálculo detallado del total mediante iteración sobre todos los pedidos de la mesa</li>
+            <li>La agregación de subtotales de cada PedidoItem considerando cantidad y precio</li>
+            <li>La integración con el módulo de caja (UsuarioCaja) para el procesamiento del pago</li>
+            <li>La actualización del estado de la mesa y liberación para nuevos clientes</li>
+          </ul>
+  
+        </div>
+      </div>
+
+      <!-- 5. Pruebas -->
+      <div class="section">
+        <h2>5. Pruebas</h2>
+
+        <h3>Resultados de Pruebas de Casos de Uso</h3>
+
+        <div class="test-result">
+          <h4>Prueba CU-001: Tomar Pedido</h4>
+          
+          <h5>Paso 1: Selección de Mesa</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/btoneramesas.png" alt="Pantalla de selección de mesas del sistema POS" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> La interfaz principal del sistema POS muestra correctamente las 16 mesas del restaurante organizadas en una cuadrícula de 4x4. 
+            La mesa 1 aparece seleccionada (resaltada en azul)
+          </div>
+          
+          <h5>Paso 2: Navegación por Categorías del Menú</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/botoneracategoria.png" alt="Pantalla de categorías del menú" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> Una vez seleccionada la mesa, el sistema presenta las categorías del menú organizadas claramente: Bebidas (actualmente seleccionada y resaltada en azul), 
+            Comidas, Postres, Extras y Completos. La interfaz mantiene el área del pedido actual visible en el lado izquierdo (actualmente vacía) y proporciona 
+            botones de acción "Enviar" y "Pagar" en la parte inferior.
+          </div>
+          
+          <h5>Paso 3: Selección de Items de Bebidas</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/botoneraitems.png" alt="Pantalla de selección de bebidas" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> Al acceder a la categoría "Bebidas", el sistema despliega correctamente los items disponibles en una distribución organizada: 
+            Coca Cola (seleccionada y resaltada en azul), Agua, Jugo Natural, Cerveza y Piscola. Cada bebida se presenta como un botón claramente identificable, 
+            permitiendo al garzón seleccionar fácilmente los productos solicitados por el cliente. 
+          
+          <div class="placeholder">
+            <strong>Resumen de la Prueba CU-001:</strong>
+            <ul>
+              <li>✅ <strong>Selección de Mesa:</strong> Interface clara con 16 mesas numeradas, selección visual efectiva</li>
+              <li>✅ <strong>Navegación de Categorías:</strong> 5 categorías bien organizadas (Bebidas, Comidas, Postres, Extras, Completos)</li>
+              <li>✅ <strong>Selección de Items:</strong> Bebidas desplegadas correctamente con retroalimentación visual</li>
+              <li>✅ <strong>Consistencia Visual:</strong> Uso consistente del color azul para elementos seleccionados</li>
+              <li>✅ <strong>Área de Pedido:</strong> Espacio dedicado visible para mostrar items agregados al pedido</li>
+              <li>✅ <strong>Controles de Acción:</strong> Botones "Enviar" y "Pagar" claramente accesibles</li>
+            </ul>
+            <strong>Conclusión:</strong> El caso de uso CU-001 "Tomar Pedido" se ejecuta exitosamente a través de la interfaz gráfica. 
+            El sistema demuestra una navegación fluida desde la selección de mesa hasta la elección de productos específicos.
+          </div>
+        </div>
+
+        <div class="test-result">
+          <h4>Prueba CU-002: Preparar Orden en Cocina</h4>
+          
+          <h5>Estado 1: Recepción de Pedidos Pendientes</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/pedidorecbido.png" alt="Ventana de bar con pedidos pendientes" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> La ventana de bar muestra correctamente la interfaz de gestión de pedidos para bebidas. 
+            Se visualiza una cuadrícula de 6 secciones (2x3) con botones "Finalizar" en cada una, indicando espacios disponibles para 
+            mostrar pedidos pendientes.
+          </div>
+          
+          <h5>Estado 2: Pedido Recibido con Detalles</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/pedidofinalizado.png" alt="Ventana de bar con pedido específico recibido" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> Al recibir un pedido desde el sistema POS, la ventana de bar muestra correctamente los detalles específicos:
+            <ul>
+              <li><strong>Mesa 2:</strong> Identificación clara del origen del pedido</li>
+              <li><strong>Coca Cola (x1):</strong> Item específico con cantidad exacta</li>
+              <li><strong>Comentario:</strong> Área disponible para comentarios especiales del cliente</li>
+            </ul>
+          </div>
+          
+          <div class="placeholder">
+            <strong>Resumen de la Prueba CU-002:</strong>
+            <ul>
+              <li>✅ <strong>Recepción de Órdenes:</strong> Interface clara para mostrar pedidos pendientes de bebidas</li>
+              <li>✅ <strong>Información Detallada:</strong> Muestra mesa, item, cantidad y comentarios especiales</li>
+              <li>✅ <strong>Organización Visual:</strong> Distribución en cuadrícula que permite gestionar múltiples pedidos</li>
+              <li>✅ <strong>Control de Estado:</strong> Botones "Finalizar" para marcar órdenes como completadas</li>
+              <li>✅ <strong>Comunicación POS-Bar:</strong> Recepción exitosa de pedidos desde el sistema principal</li>
+              <li>✅ <strong>Separación por Tipo:</strong> Solo muestra items de tipo "Bebida" filtrados correctamente</li>
+            </ul>
+            <strong>Conclusión:</strong> El caso de uso CU-002 se ejecuta correctamente en el módulo de bar. 
+            El sistema demuestra la recepción efectiva de pedidos de bebidas desde el POS principal, 
+            proporcionando al personal del bar toda la información necesaria para preparar y entregar las órdenes de manera eficiente.
+            La interfaz facilita el seguimiento del estado de los pedidos desde la recepción hasta la finalización.
+          </div>
+        </div>
+
+        <div class="test-result">
+          <h4>Prueba CU-003: Procesar Pago de Mesa</h4>
+          
+          <h5>Interfaz de Procesamiento de Pagos</h5>
+          <div class="image-placeholder">
+            <img src="screenshots/pagar.png" alt="Pantalla de procesamiento de pagos del sistema POS" style="max-width: 100%; border: 1px solid #ccc;">
+          </div>
+          <div class="placeholder">
+            <strong>Resultado:</strong> La interfaz del sistema POS muestra la funcionalidad de procesamiento de pagos integrada correctamente. 
+            Se observa que el sistema mantiene la estructura principal con:
+            <ul>
+              <li><strong>Gestión de Mesas</strong></li>
+              <li><strong>Área de Pedido:</strong> 
+              <li><strong>Controles de Acción:</strong> 
+              <li><strong>Categorías del Menú:</strong> </li>
+            
+            La presencia del botón "Pagar" confirma que el sistema está preparado para procesar el pago de la mesa seleccionada. 
+            Una vez que el garzón presiona este botón, el sistema ejecutará la secuencia de cálculo de totales.
+          </div>
+          
+          <div class="placeholder">
+            <strong>Resumen de la Prueba CU-003:</strong>
+            <ul>
+              <li>✅ <strong>Acceso al Pago:</strong> Botón "Pagar" claramente visible y accesible desde la interfaz principal</li>
+              <li>✅ <strong>Selección de Mesa:</strong> Sistema permite identificar correctamente la mesa a pagar</li>
+              <li>✅ <strong>Estado del Pedido:</strong> Área visible para mostrar items que serán incluidos en el cálculo total</li>
+              <li>✅ <strong>Preparación para Cálculo:</strong> Sistema listo para ejecutar secuencia de cálculo de totales</li>
+              <li>✅ <strong>Flujo Completo:</strong> Interface preparada para manejar desde solicitud hasta cierre de mesa</li>
+            </ul>
+            <strong>Conclusión:</strong> El caso de uso CU-003 "Procesar Pago de Mesa" está correctamente implementado en la interfaz. 
+            El sistema proporciona acceso directo a la funcionalidad de pago desde la ventana principal.
+          </div>
+        </div>
+
+        <h3>Dificultades Encontradas y Soluciones</h3>
+        <div class="placeholder">
+          [Liste las dificultades encontradas durante el desarrollo y cómo las
+          superó]
+          <br /><br />
+          Ejemplo:
+          <ul>
+            <li>
+              <strong>Dificultad 1:</strong> [Descripción] -
+              <strong>Solución:</strong> [Cómo se resolvió]
+            </li>
+            <li>
+              <strong>Dificultad 2:</strong> [Descripción] -
+              <strong>Solución:</strong> [Cómo se resolvió]
+            </li>
+          </ul>
+        </div>
+
+        <h3>Bugs Conocidos</h3>
+        <div class="placeholder">
+          [Liste los bugs que aún están presentes en el sistema]
+          <br /><br />
+          <ul>
+            <li>[Bug 1: Descripción y condiciones para reproducir]</li>
+            <li>[Bug 2: Descripción y condiciones para reproducir]</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 7. Descarga del Proyecto -->
+      <div class="download-section">
+        <h2>7. Descarga del Código Fuente</h2>
+        <p>
+          El código fuente completo del proyecto está disponible para descarga.
+          <br />
+        </p>
+        <a href="https://github.com/bmatuss/PROYECTO-POO2025" class="download-link" target="_blank">
+          📦 Descargar Proyecto (sistema-pos-restaurante.tar.gz)
+        </a>
+
+      <!-- Footer -->
+      <footer
+        style="
+          text-align: center;
+          margin-top: 50px;
+          padding-top: 20px;
+          border-top: 1px solid #dee2e6;
+          color: #6c757d;
+        "
+      >
+        <p>
+          Sistema POS para Restaurante - Proyecto de Programación Orientada a
+          Objetos
+        </p>
+      </footer>
+    </div>
+
+
+  </body>
+</html>

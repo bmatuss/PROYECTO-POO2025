@@ -182,3 +182,7 @@ vcpkg.json
 docs/
 html/
 latex/
+
+
+diagramas-uml/
+casos-de-uso/
