@@ -11,7 +11,7 @@ class Bebida : public Item {
 
     public:
         Bebida(const std::string& nombre, int precio, bool alcohol)
-            : Item(nombre, precio), alcohol(alcohol) {}
+            : Item(nombre, precio, false), alcohol(alcohol) {}
 
         virtual ~Bebida() {}
 

@@ -18,8 +18,8 @@ class Item{
         //getters
         std::string getNombre() const{return nombre;}
         int getPrecio() const{return precio;}
-        bool esVegano() const{return vegano;}
-        virtual std::string getTipo();
+
+        virtual std::string getTipo() const = 0;
 
 
 

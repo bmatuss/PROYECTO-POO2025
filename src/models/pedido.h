@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <QString>
 #include "item.h"
 #include "pedidoItem.h"
 // el pedido formado por una array de PedidoItem(item,cantidad,comentario)
@@ -26,7 +27,17 @@ class Pedido {
         double getMontoTotal() const;
         // devuelve el numero de mesa
         int getMesa() const { return mesa; }
+        const std::vector<PedidoItem*>& getItems() const { return items; }
+
+
+
         
+        
+        
+
+
+
+
 };
 
 #endif // PEDIDO_H
