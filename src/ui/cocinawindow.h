@@ -2,6 +2,10 @@
 #define COCINAWINDOW_H
 
 #include <QMainWindow>
+#include <string>
+#include <QListWidget>
+#include "../models/pedido.h"
+#include "../models/item.h"
 
 namespace Ui {
 class cocinawindow;
@@ -16,6 +20,8 @@ public:
     ~cocinawindow();
 
 private slots:
+    void agregarMesa(int mesa, QListWidget *listWidget);
+    void agregarElemento(Item *item, int cantidad, const std::string &comentario, QListWidget *listWidget);
     void on_pushButton_1_clicked();
 
     void on_pushButton_2_clicked();

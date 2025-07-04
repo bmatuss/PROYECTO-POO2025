@@ -27,26 +27,13 @@ class Pedido {
         double getMontoTotal() const;
         // devuelve el numero de mesa
         int getMesa() const { return mesa; }
+        const std::vector<PedidoItem*>& getItems() const { return items; }
 
 
 
         
-        /*int getCantidad(Item* item) const {
-            for (const PedidoItem* pedidoItem : items) {
-                if (pedidoItem->getItem() == item) {
-                    return pedidoItem->getCantidad();
-                }
-            }
-            return 0; // Si el item no está en el pedido, devuelve 0
-        }
-        QString getComentario(Item* item) {
-            for (const PedidoItem* pedidoItem : items) {
-                if (pedidoItem->getItem() == item) {
-                    return QString::fromStdString(pedidoItem->getComentario());
-                }
-            }
-            return QString(); 
-        }*/
+        
+        
 
 
 

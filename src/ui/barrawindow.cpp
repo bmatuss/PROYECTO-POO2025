@@ -11,11 +11,20 @@ barrawindow::barrawindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle("barra");
     Item *item1 = new Bebida("Cerveza", 500, false);
-    Pedido *pedido1 = new Pedido(1);
+    Pedido *pedido1 = new Pedido(1); //ese 1 es el numero de mesa
     pedido1->agregarItem(item1, 2, "Sin hielo");
+    pedido1->agregarItem(new Bebida("Vino", 700, false), 1, "Merlot");
+    pedido1->agregarItem(new Bebida("Whisky", 1000, false), 1, "On the rocks");
+    pedido1->agregarItem(new Bebida("Agua con gas", 300, true), 1, "Con hielo");
+    pedido1->agregarItem(new Bebida("Piscola", 800, false), 3, "70 30");
     agregarMesa(pedido1->getMesa(), ui->listWidget_1);
-    agregarElemento(item1, 2, "Sin hielo", ui->listWidget_1);
+    for (size_t i = 0; i < pedido1->getItems().size(); i++)
+    {
+        PedidoItem* item= pedido1->getItems().at(i); 
+        agregarElemento(item->getItem(), item->getCantidad(), item->getComentario(), ui->listWidget_1);
+    }
 }
+
 
 barrawindow::~barrawindow()
 {
