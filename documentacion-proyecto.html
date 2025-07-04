@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -603,29 +604,40 @@
 
         <h3>Dificultades Encontradas y Soluciones</h3>
         <div class="placeholder">
-          [Liste las dificultades encontradas durante el desarrollo y cómo las
-          superó]
+          Durante el desarrollo del sistema POS se presentaron diversas dificultades técnicas que requirieron soluciones creativas:
           <br /><br />
-          Ejemplo:
           <ul>
             <li>
-              <strong>Dificultad 1:</strong> [Descripción] -
-              <strong>Solución:</strong> [Cómo se resolvió]
+              <strong>Comunicación entre Ventanas:</strong> Una de las principales dificultades fue implementar el envío de objetos (pedidos) entre las diferentes ventanas del sistema (POS, Cocina, Bar). Inicialmente intentamos implementar el patrón Publisher-Subscriber utilizado en tareas anteriores del semestre, pero resultó ser demasiado complejo para este contexto específico. - 
+              <strong>Solución:</strong> Después de investigar las capacidades de Qt, descubrimos el sistema de signals y slots nativo del framework (usando `emit` y `connect()`). Esta solución resultó ser mucho más elegante y apropiada para la comunicación entre componentes de Qt, permitiendo una comunicación asíncrona y desacoplada entre ventanas.
             </li>
             <li>
-              <strong>Dificultad 2:</strong> [Descripción] -
-              <strong>Solución:</strong> [Cómo se resolvió]
+              <strong>Gestión de Estados de Mesa:</strong> El manejo del estado de las mesas y la sincronización entre pedidos activos presentó complejidad adicional. - 
+              <strong>Solución:</strong> Se implementó un sistema de estados básico en la clase Mesa que controla las transiciones entre estados ABIERTA y CERRADA
             </li>
+          </ul>
+        </div>
+
+        <h3>Funcionalidades Faltantes</h3>
+        <div class="placeholder">
+          Aunque el sistema cumple con los objetivos principales, quedaron algunas funcionalidades pendientes por implementar:
+          <br /><br />
+          <ul>
+            <li><strong>Gestión Completa de Usuarios:</strong> El sistema tiene implementadas las clases UsuarioGarzon y UsuarioCaja, pero no se integró completamente el control de acceso y permisos por rol. Falta implementar login, sesiones de usuario y restricciones de funcionalidades según el tipo de usuario.</li>
+            <li><strong>Persistencia de Datos:</strong> Los pedidos y transacciones no se guardan , por lo que se pierden al cerrar la aplicación.</li>
+            <li><strong>Configuración Dinámica:</strong> El número de mesas (16) y la configuración del menú están hardcodeados en lugar de ser configurables.</li>
+            <li><strong>Sistema de Impresión:</strong> Falta la funcionalidad para imprimir tickets de venta y comandas para cocina/bar.</li>
           </ul>
         </div>
 
         <h3>Bugs Conocidos</h3>
         <div class="placeholder">
-          [Liste los bugs que aún están presentes en el sistema]
+          Se han identificado los siguientes problemas menores que requieren atención:
           <br /><br />
           <ul>
-            <li>[Bug 1: Descripción y condiciones para reproducir]</li>
-            <li>[Bug 2: Descripción y condiciones para reproducir]</li>
+            <li><strong>Navegación de Mesa:</strong> Una vez que se selecciona una mesa en la interfaz principal, no existe un botón "Volver" o "Cancelar" para regresar al menú de selección de mesas sin tener que enviar un pedido o procesar un pago. Aunque no es técnicamente un bug, es una funcionalidad de UX que falta y puede resultar confusa para el usuario.</li>
+            <li><strong>Validación de Pedidos Vacíos:</strong> El sistema permite enviar pedidos sin items, lo que puede generar comandas vacías en cocina y bar.</li>
+            <li><strong>Manejo de Errores de Carga:</strong> Si el archivo menu.json no se encuentra o tiene errores de formato, el sistema no maneja correctamente el error y puede fallar al iniciar.</li>
           </ul>
         </div>
       </div>
