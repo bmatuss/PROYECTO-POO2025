@@ -5,7 +5,7 @@
 #include <vector>
 #include <QString>
 #include "item.h"
-#include "pedidoitem.h"
+#include "pedidoItem.h"
 // el pedido formado por una array de PedidoItem(item,cantidad,comentario)
 // cada Pedido tiene una mesa asociada
 class Pedido {

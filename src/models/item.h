@@ -18,6 +18,7 @@ class Item{
         //getters
         std::string getNombre() const{return nombre;}
         int getPrecio() const{return precio;}
+
         virtual std::string getTipo() const = 0;
 
 

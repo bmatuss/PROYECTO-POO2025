@@ -13,6 +13,8 @@ SOURCES += \
     src/ui/cocinawindow.cpp \
     src/ui/poswindow.cpp \
     src/models/pedido.cpp \
+    src/models/categoria.cpp \
+    src/models/item.cpp \
     src/main.cpp
 
 
@@ -23,6 +25,7 @@ HEADERS += \
     src/models/item.h \
     src/models/bebida.h \
     src/models/comida.h \
+    src/models/categoria.h \
     src/models/pedido.h \
     src/models/pedidoItem.h
 
