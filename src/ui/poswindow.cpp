@@ -10,6 +10,8 @@ PosWindow::PosWindow(QWidget *parent)
     setWindowTitle("pos");
 
     crearBotonesMesas();
+    crearBotonesCategorias();
+    crearBotonesItems();
 }
 
 PosWindow::~PosWindow()
@@ -31,6 +33,49 @@ void PosWindow::crearBotonesMesas()
         int fila = (i-1) / 4;
         int columna = (i-1)%4;
 
-       ui->gridMesas->addWidget(boton, fila, columna);
+        connect(boton,&QPushButton::clicked,this,&PosWindow::mesaSeleccionada);
+
+        ui->gridMesas->addWidget(boton, fila, columna);
     }
+}
+void PosWindow::crearBotonesCategorias(){
+     // habria q sacarlos del .json
+    // por ahora los dejo hardcodeados
+    QStringList categorias = {"Bebidas", "Comidas", "Postres", "Extras"};
+    for (int i=0;i < categorias.size(); i++){
+        QPushButton *boton = new QPushButton(categorias[i],this);
+        
+        int fila = i/2;
+        int columna = i%2;
+        connect(boton,&QPushButton::clicked,this,&PosWindow::categoriaSeleccionada);
+
+        ui->gridCategoria->addWidget(boton, fila, columna);
+    }
+}
+void PosWindow::crearBotonesItems(){
+    // habria q sacarlos del .json
+    // por ahora los dejo hardcodeados
+    QStringList items = {"Coca Cola", "Pizza", "Helado", "Papas Fritas"};
+    for (int i=0;i < items.size(); i++){
+        QPushButton *boton = new QPushButton(items[i],this);
+
+        int fila = i/2;
+        int columna = i%2;
+        connect(boton, &QPushButton::clicked, this, &PosWindow::itemSeleccionado);
+
+        ui->gridItems->addWidget(boton, fila, columna);
+    }
+}
+void PosWindow::mesaSeleccionada(){
+    //selecciona la mesa y muestra el menu (parte de categorias)
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void PosWindow::itemSeleccionado(){
+    //selecciona el item y devuelve a menu de categorias
+    ui->stackedCategorias->setCurrentWidget(ui->pageCategoria);
+}
+void PosWindow::categoriaSeleccionada(){
+    //selecciona la categoria y muestra los items
+    ui->stackedCategorias->setCurrentWidget(ui->pageItems);
 }

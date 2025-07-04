@@ -21,6 +21,11 @@ private:
 private slots:
     void on_lineEdit_returnPressed();
     void crearBotonesMesas();
+    void crearBotonesCategorias();
+    void crearBotonesItems();
+    void mesaSeleccionada();
+    void itemSeleccionado();
+    void categoriaSeleccionada();
 };
 
 #endif // POSWINDOW_H
