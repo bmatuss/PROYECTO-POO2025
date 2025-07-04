@@ -13,7 +13,7 @@ class Item{
         Item(const std::string& nombre, const int precio, const bool vegano)
             : nombre(nombre), precio(precio), vegano(vegano) {}
 
-        virtual ~Item() {}
+        virtual ~Item();
 
         //getters
         std::string getNombre() const{return nombre;}
