@@ -3,8 +3,11 @@
 
 #include <QMainWindow>
 #include <string>
+#include <vector>
+#include <QListWidget>
 #include "../models/categoria.h"
 #include "../models/pedido.h"
+#include "../models/mesa.h"
 class cocinawindow;
 class barrawindow;
 
@@ -25,6 +28,7 @@ public:
     
     void setCocinaWindow(cocinawindow* cocina);
     void setBarraWindow(barrawindow* barra);
+    Mesa* buscarMesaPorNumero(int numeroMesa);
 
 private:
     Ui::PosWindow *ui;
@@ -33,6 +37,8 @@ private:
     cocinawindow* ventanaCocina;
     barrawindow* ventanaBarra;
     Item* buscarItemEnCategoria(const std::string& nombreItem);
+    std::vector<Mesa*> mesas;
+    std::vector<QListWidget*> listasPedidos;
 
 private slots:
     void on_lineEdit_returnPressed();
@@ -43,6 +49,7 @@ private slots:
     void mesaSeleccionada();
     void itemSeleccionado();
     void categoriaSeleccionada();
+    void on_pagarButton_clicked();
 };
 
 #endif // POSWINDOW_H
