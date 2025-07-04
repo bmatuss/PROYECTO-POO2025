@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>771</width>
-      <height>501</height>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="login">
      <widget class="QLineEdit" name="lineEdit">
@@ -91,19 +91,6 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QLabel" name="listaPedido">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>181</width>
-        <height>361</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="enviarButton">
       <property name="geometry">
        <rect>
@@ -115,6 +102,16 @@
       </property>
       <property name="text">
        <string>Enviar</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listaPedido">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>80</y>
+        <width>191</width>
+        <height>331</height>
+       </rect>
       </property>
      </widget>
     </widget>

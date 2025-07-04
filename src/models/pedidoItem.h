@@ -1,6 +1,7 @@
 #ifndef PEDIDOITEM_H
 #define PEDIDOITEM_H
 
+#include <string>
 #include "item.h"
 // esta representa un item de un pedido 
 //tiene comentarios y cantidades.

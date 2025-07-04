@@ -2,6 +2,12 @@
 #define POSWINDOW_H
 
 #include <QMainWindow>
+#include <string>
+#include "../models/categoria.h"
+#include "../models/pedido.h"
+
+
+    
 
 namespace Ui {
 class PosWindow;
@@ -17,6 +23,9 @@ public:
 
 private:
     Ui::PosWindow *ui;
+    Categoria* categoriaActual;
+    Pedido* pedidoActual; 
+    Item* buscarItemEnCategoria(const std::string& nombreItem);
 
 private slots:
     void on_lineEdit_returnPressed();
