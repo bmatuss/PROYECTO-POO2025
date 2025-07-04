@@ -1,6 +1,6 @@
 /**
  * @file barrawindow.h
- * @brief Definición de la clase BarraWindow para la interfaz de bar
+ * @brief Ventana para el módulo de bar
  * @date 2025
  */
 
@@ -18,31 +18,10 @@ class barrawindow;
 }
 
 /**
- * @class barrawindow
- * @brief Ventana principal para el módulo de bar del sistema POS
+ * @brief Ventana del bar
  * 
- * Esta clase gestiona la interfaz de usuario para el personal de bar,
- * permitiendo visualizar y procesar los pedidos de bebidas y cócteles.
- * Maneja múltiples comandas simultáneamente y proporciona una interfaz
- * especializada para la preparación de bebidas.
- * 
- * @details
- * Funcionalidades principales:
- * - Recepción y visualización de pedidos de bebidas
- * - Gestión de múltiples comandas por mesa
- * - Interfaz especializada para preparación de bebidas y cócteles
- * - Organización visual de pedidos por mesa
- * - Marcado de bebidas como completadas
- * 
- * La ventana se conecta con el sistema principal de pedidos y filtra
- * automáticamente los elementos que requieren preparación en el bar
- * (bebidas alcohólicas, cócteles, bebidas especiales, etc.).
- * 
- * @note Esta clase hereda de QMainWindow para proporcionar una interfaz
- * completa con barras de herramientas y menús si fuera necesario.
- * 
- * @see Pedido, Item, Bebida
- * @since Versión 1.0
+ * Muestra comandas de bebidas que deben prepararse.
+ * Especializada para cócteles y bebidas.
  */
 class barrawindow : public QMainWindow
 {

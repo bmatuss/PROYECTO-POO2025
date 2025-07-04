@@ -1,6 +1,6 @@
 /**
  * @file item.h
- * @brief Definición de la clase base Item para elementos del menú
+ * @brief Clase base para items del menú
  * @date 2025
  */
 
@@ -9,10 +9,9 @@
 #include <string>
 
 /**
- * @brief Clase base abstracta para representar elementos del menú
+ * @brief Clase base para elementos del menú
  * 
- * Esta clase sirve como base para todos los elementos que pueden 
- * aparecer en el menú del restaurante, como comidas y bebidas.
+ * Base para comidas y bebidas del restaurante.
  */
 class Item{
     private:
@@ -22,10 +21,10 @@ class Item{
 
     public:
         /**
-         * @brief Constructor de la clase Item
+         * @brief Constructor del item
          * @param nombre Nombre del item
-         * @param precio Precio del item
-         * @param vegano Indica si el item es vegano
+         * @param precio Precio
+         * @param vegano Si es vegano o no
          */
         Item(const std::string& nombre, const int precio, const bool vegano)
             : nombre(nombre), precio(precio), vegano(vegano) {}

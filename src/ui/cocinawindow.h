@@ -1,6 +1,6 @@
 /**
  * @file cocinawindow.h
- * @brief Definición de la clase CocinaWindow para la interfaz de cocina
+ * @brief Ventana para el módulo de cocina
  * @date 2025
  */
 
@@ -18,30 +18,10 @@ class cocinawindow;
 }
 
 /**
- * @class cocinawindow
- * @brief Ventana principal para el módulo de cocina del sistema POS
+ * @brief Ventana de cocina
  * 
- * Esta clase gestiona la interfaz de usuario para el personal de cocina,
- * permitiendo visualizar y procesar los pedidos que requieren preparación
- * en la cocina. Maneja múltiples comandas simultáneamente a través de
- * diferentes listas de widgets.
- * 
- * @details
- * Funcionalidades principales:
- * - Recepción y visualización de pedidos de cocina
- * - Gestión de múltiples comandas por mesa
- * - Interfaz para marcar elementos como completados
- * - Organización visual de pedidos por mesa
- * 
- * La ventana se conecta con el sistema principal de pedidos y filtra
- * automáticamente los elementos que requieren preparación en cocina
- * (principalmente comidas y platos calientes).
- * 
- * @note Esta clase hereda de QMainWindow para proporcionar una interfaz
- * completa con barras de herramientas y menús si fuera necesario.
- * 
- * @see Pedido, Item, Comida
- * @since Versión 1.0
+ * Muestra comandas de comidas que deben prepararse.
+ * Maneja múltiples comandas simultáneamente.
  */
 class cocinawindow : public QMainWindow
 {

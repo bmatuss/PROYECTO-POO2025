@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Punto de entrada principal del Sistema POS
+ * @brief Entrada principal del programa
  * @date 2025
  */
 
@@ -11,16 +11,13 @@
 #include <QApplication>
 
 /**
- * @brief Función principal del programa
+ * @brief Función principal
  * 
- * Inicializa la aplicación Qt y crea las tres ventanas principales:
- * - POS Window: Interfaz principal para tomar pedidos
- * - Cocina Window: Interfaz para la cocina
- * - Barra Window: Interfaz para la preparación de bebidas
+ * Crea las 3 ventanas del sistema (POS, cocina, bar) y las muestra.
  * 
- * @param argc Número de argumentos de línea de comandos
- * @param argv Array de argumentos de línea de comandos
- * @return int Código de salida de la aplicación
+ * @param argc Número de argumentos
+ * @param argv Argumentos del programa
+ * @return Código de salida
  */
 int main(int argc, char *argv[])
 {

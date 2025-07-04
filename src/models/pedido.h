@@ -1,6 +1,6 @@
 /**
  * @file pedido.h
- * @brief Definición de la clase Pedido para gestionar órdenes del restaurante
+ * @brief Clase para manejar pedidos de mesas
  * @date 2025
  */
 
@@ -14,10 +14,9 @@
 #include "pedidoItem.h"
 
 /**
- * @brief Clase que representa un pedido de una mesa
+ * @brief Pedido de una mesa
  * 
- * El pedido está formado por un array de PedidoItem (item, cantidad, comentario).
- * Cada Pedido tiene una mesa asociada.
+ * Contiene items, cantidades y comentarios.
  */
 class Pedido {
     private:
@@ -27,13 +26,13 @@ class Pedido {
 
     public:
         /**
-         * @brief Constructor de la clase Pedido
-         * @param mesa Número de la mesa que realiza el pedido
+         * @brief Constructor
+         * @param mesa Número de mesa
          */
         Pedido(int mesa) : mesa(mesa) {}
         
         /**
-         * @brief Destructor que libera la memoria de los items
+         * @brief Destructor que limpia memoria
          */
         ~Pedido() {
             for (PedidoItem* item : items) {

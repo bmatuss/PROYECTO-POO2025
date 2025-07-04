@@ -1,6 +1,6 @@
 /**
  * @file poswindow.h
- * @brief Definición de la ventana principal del sistema POS
+ * @brief Ventana principal del sistema POS
  * @date 2025
  */
 
@@ -24,19 +24,10 @@ class PosWindow;
 }
 
 /**
- * @brief Ventana principal del sistema POS (Point of Sale)
+ * @brief Ventana principal del POS
  * 
- * Esta clase representa la interfaz principal del sistema de punto de venta.
- * Permite a los usuarios (garzones/meseros) tomar pedidos de las mesas,
- * seleccionar items del menú organizados por categorías, y enviar las
- * órdenes a la cocina y al bar según corresponda.
- * 
- * Funcionalidades principales:
- * - Gestión de mesas del restaurante
- * - Navegación por categorías del menú
- * - Selección de items y creación de pedidos
- * - Comunicación con ventanas de cocina y bar
- * - Procesamiento de pagos
+ * Permite tomar pedidos, manejar mesas y enviar órdenes
+ * a cocina y bar.
  */
 class PosWindow : public QMainWindow
 {

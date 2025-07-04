@@ -1,83 +1,73 @@
-# Sistema POS - Restaurante
+# Sistema POS Restaurante
 
 ## Descripción
 
-Sistema de Punto de Venta (POS) para restaurantes desarrollado en C++ y Qt. El sistema permite gestionar pedidos, menús y coordinar entre diferentes áreas del restaurante (caja, cocina y bar).
+Sistema POS para restaurantes hecho en C++ con Qt. Maneja pedidos y coordina cocina, bar y caja.
 
-## Características
+## Funcionalidades
 
-- **Interfaz de Usuario Multi-ventana**: Tres interfaces especializadas para diferentes roles
-  - **POS Window**: Interfaz principal para tomar pedidos
-  - **Cocina Window**: Interfaz para la preparación de comidas
-  - **Barra Window**: Interfaz para la preparación de bebidas
+- **3 ventanas principales**:
+  - POS: Para tomar pedidos
+  - Cocina: Para ver comandas de comida  
+  - Bar: Para ver comandas de bebidas
 
-- **Gestión de Menú**: Sistema flexible para manejar diferentes tipos de items
-- **Sistema de Pedidos**: Gestión completa de órdenes con comentarios especiales
-- **Arquitectura Orientada a Objetos**: Código bien estructurado y mantenible
+- Gestión de mesas y menú
+- Pedidos con comentarios especiales
+- Interfaz gráfica con Qt
 
-## Arquitectura
+## Estructura
 
-### Modelos Principales
+**Clases principales:**
+- `Item`: Base para elementos del menú
+- `Pedido`: Maneja órdenes de mesas
+- `PedidoItem`: Item individual en pedido
+- `Categoria`: Organiza el menú
 
-- `Item`: Clase base abstracta para elementos del menú
-- `Pedido`: Gestión de órdenes de las mesas
-- `PedidoItem`: Items individuales dentro de un pedido
-- `Categoria`: Clasificación de items del menú
-
-### Interfaces de Usuario
-
-- `PosWindow`: Ventana principal del sistema
-- `CocinaWindow`: Interfaz para la cocina
-- `BarraWindow`: Interfaz para la preparación de bebidas
+**Ventanas:**
+- `PosWindow`: Ventana principal
+- `CocinaWindow`: Para cocina
+- `BarraWindow`: Para bar
 
 ## Compilación
 
-### Opción 1: Usando Make
+**Con Make:**
 ```bash
 make
 ```
 
-### Opción 2: Usando Qt Creator
+**Con Qt Creator:**
 1. Abrir Qt Creator
-2. Seleccionar "Abrir Proyecto" o "Open Project"
-3. Navegar hasta el directorio del proyecto
-4. Seleccionar el archivo `POS.pro`
-5. Configurar el kit de compilación (si es necesario)
-6. Hacer clic en "Configurar Proyecto" o "Configure Project"
-7. Compilar usando Ctrl+B (Cmd+B en macOS) o el botón de Build
-
-
+2. Abrir archivo `POS.pro`
+3. Configurar kit si es necesario
+4. Compilar con Ctrl+B (Cmd+B en macOS)
 
 ## Documentación
 
-La documentación del código se genera automáticamente usando Doxygen:
-
+Para generar documentación:
 ```bash
 doxygen Doxyfile
 ```
 
-### Instalación de Doxygen
+**Instalar Doxygen:**
+- macOS: `brew install doxygen`
+- Ubuntu: `sudo apt-get install doxygen`
+- Windows: Descargar desde doxygen.nl
 
-Si no tienes Doxygen instalado:
-- **macOS:** `brew install doxygen`
-- **Ubuntu/Debian:** `sudo apt-get install doxygen`
-- **Windows:** Descargar desde [doxygen.nl](http://www.doxygen.nl/download.html)
+Ver docs en: `docs/html/index.html`
 
-La documentación estará disponible en `docs/html/index.html`
-
-## Estructura del Proyecto
+## Estructura
 
 ```
 src/
-├── main.cpp              # Punto de entrada principal
-├── models/               # Modelos de datos
-│   ├── item.h/.cpp      # Clase base para items del menú
-│   ├── pedido.h/.cpp    # Gestión de pedidos
+├── main.cpp              # Entrada principal
+├── models/               # Clases de datos
+│   ├── item.h/.cpp      # Items del menú
+│   ├── pedido.h/.cpp    # Pedidos
 │   └── ...
-└── ui/                  # Interfaces de usuario
-    ├── poswindow.h/.cpp # Ventana principal POS
-    ├── cocinawindow.h/.cpp # Ventana de cocina
-    └── barrawindow.h/.cpp  # Ventana de bar
+└── ui/                  # Interfaces
+    ├── poswindow.*      # Ventana principal
+    ├── cocinawindow.*   # Ventana cocina
+    └── barrawindow.*    # Ventana bar
 ```
 
 ## Autor
