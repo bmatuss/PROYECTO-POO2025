@@ -429,7 +429,7 @@
 
         <h4>Diagrama de Secuencia - CU-001: Tomar Pedido</h4>
         <div class="image-placeholder">
-          <img src="casos-de-uso/DS-001-Tomar-Pedido-v2.png" alt="Diagrama de Secuencia - Tomar Pedido" style="max-width: 100%; border: 1px solid #ccc;">
+          <img src="screenshots/DS-001-Tomar-Pedido-v2.png" alt="Diagrama de Secuencia - Tomar Pedido" style="max-width: 100%; border: 1px solid #ccc;">
         </div>
         <div class="placeholder">
           <strong>Explicación del diagrama:</strong> Este diagrama de secuencia muestra la interacción entre el Garzón, el sistema POS y las entidades del modelo (Mesa, Pedido, PedidoItem, etc.) durante el proceso de tomar un pedido. Se observa claramente:
@@ -444,7 +444,7 @@
 
         <h4>Diagrama de Secuencia - CU-002: Preparar Orden</h4>
         <div class="image-placeholder">
-          <img src="casos-de-uso/DS-002-Preparar-Orden-Cocina-v2.png" alt="Diagrama de Secuencia - Preparar Orden Cocina" style="max-width: 100%; border: 1px solid #ccc;">
+          <img src="screenshots/DS-002-Preparar-Orden-Cocina-v2.png" alt="Diagrama de Secuencia - Preparar Orden Cocina" style="max-width: 100%; border: 1px solid #ccc;">
         </div>
         <div class="placeholder">
           <strong>Explicación del diagrama:</strong> Este diagrama muestra el flujo de trabajo en la cocina desde la recepción de órdenes hasta su completación. Se destacan los siguientes aspectos:
@@ -458,7 +458,7 @@
 
         <h4>Diagrama de Secuencia - CU-003: Procesar Pago</h4>
         <div class="image-placeholder">
-          <img src="casos-de-uso/DS-003-Procesar-Pago-Mesa-v2.png" alt="Diagrama de Secuencia - Procesar Pago Mesa" style="max-width: 100%; border: 1px solid #ccc;">
+          <img src="screenshots/DS-003-Procesar-Pago-Mesa-FINAL.png" alt="Diagrama de Secuencia - Procesar Pago Mesa" style="max-width: 100%; border: 1px solid #ccc;">
         </div>
         <div class="placeholder">
           <strong>Explicación del diagrama:</strong> Este diagrama ilustra el proceso completo de procesamiento de pagos, desde la solicitud del cliente hasta el cierre de la mesa. Los elementos clave incluyen:
@@ -637,6 +637,7 @@
           <ul>
             <li><strong>Navegación de Mesa:</strong> Una vez que se selecciona una mesa en la interfaz principal, no existe un botón "Volver" o "Cancelar" para regresar al menú de selección de mesas sin tener que enviar un pedido o procesar un pago. Aunque no es técnicamente un bug, es una funcionalidad de UX que falta y puede resultar confusa para el usuario.</li>
             <li><strong>Validación de Pedidos Vacíos:</strong> El sistema permite enviar pedidos sin items, lo que puede generar comandas vacías en cocina y bar.</li>
+            <li><strong>Comentarios en Pedidos:</strong> No existe interfaz gráfica para agregar comentarios especiales a los items del pedido. Los comentarios solo pueden agregarse modificando directamente el código fuente (hardcodeado), lo que limita la funcionalidad en tiempo real del sistema.</li>
             <li><strong>Manejo de Errores de Carga:</strong> Si el archivo menu.json no se encuentra o tiene errores de formato, el sistema no maneja correctamente el error y puede fallar al iniciar.</li>
           </ul>
         </div>
