@@ -4,6 +4,8 @@
 #include <vector>
 #include <QStringList>
 #include "item.h"
+#include "bebida.h"
+#include "comida.h"
 
 class Categoria{
     private:
@@ -87,29 +89,29 @@ class Categoria{
             Categoria* extras = buscarCategoriaPorNombre("Extras");
             
             if (bebidas) {
-                bebidas->agregarItem(new Item("Coca Cola", 2500, false));
-                bebidas->agregarItem(new Item("Agua", 1500, true));
-                bebidas->agregarItem(new Item("Jugo Natural", 3000, true));
-                bebidas->agregarItem(new Item("Cerveza", 4000, false));
+                bebidas->agregarItem(new Bebida("Coca Cola", 2500, false));
+                bebidas->agregarItem(new Bebida("Agua", 1500, false));
+                bebidas->agregarItem(new Bebida("Jugo Natural", 3000, false));
+                bebidas->agregarItem(new Bebida("Cerveza", 4000, true));
             }
             
             if (comidas) {
-                comidas->agregarItem(new Item("Pizza Margherita", 12000, true));
-                comidas->agregarItem(new Item("Hamburguesa", 8500, false));
-                comidas->agregarItem(new Item("Ensalada César", 7000, false));
-                comidas->agregarItem(new Item("Pasta", 9000, true));
+                comidas->agregarItem(new Comida("Pizza Margherita", 12000, true));
+                comidas->agregarItem(new Comida("Hamburguesa", 8500, false));
+                comidas->agregarItem(new Comida("Ensalada César", 7000, false));
+                comidas->agregarItem(new Comida("Pasta", 9000, true));
             }
             
             if (postres) {
-                postres->agregarItem(new Item("Helado", 3500, true));
-                postres->agregarItem(new Item("Torta de Chocolate", 4500, false));
-                postres->agregarItem(new Item("Flan", 3000, false));
+                postres->agregarItem(new Comida("Helado", 3500, true));
+                postres->agregarItem(new Comida("Torta de Chocolate", 4500, false));
+                postres->agregarItem(new Comida("Flan", 3000, false));
             }
             
             if (extras) {
-                extras->agregarItem(new Item("Papas Fritas", 2500, true));
-                extras->agregarItem(new Item("Pan de Ajo", 2000, true));
-                extras->agregarItem(new Item("Salsa Extra", 500, true));
+                extras->agregarItem(new Comida("Papas Fritas", 2500, true));
+                extras->agregarItem(new Comida("Pan de Ajo", 2000, true));
+                extras->agregarItem(new Comida("Salsa Extra", 500, true));
             }
         }
 };
